@@ -10,6 +10,7 @@ var http = require('http');
 var fs = require('fs');
 var port = 2000;
 
+//Used to get the correct url and serve the image.
 function serveImage(fileName, req, res){
   var data = fs.readFile('images/' + fileName, function(err, data){
     if(err){
@@ -24,6 +25,7 @@ function serveImage(fileName, req, res){
   });
 }
 
+//Used to send serveImage the correct file name.
 var server = http.createServer(function (req, res){
   switch (req.url) {
     case '/ace.jpg':
